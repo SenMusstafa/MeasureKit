@@ -1,25 +1,44 @@
 {
   "expo": {
-    "name": "app",
-    "slug": "app",
+    "name": "MeasureKit",
+    "slug": "measurekit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1A1A2E"
+    },
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.yourname.measurekit",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Ses seviyesi ölçmek için mikrofon gereklidir.",
+        "NSCameraUsageDescription": "AR uzunluk ölçümü için kamera gereklidir.",
+        "NSLocationWhenInUseUsageDescription": "Gerçek kuzey hesabı için konum gereklidir.",
+        "UIRequiredDeviceCapabilities": ["accelerometer", "magnetometer"]
+      }
     },
     "android": {
+      "package": "com.yourname.measurekit",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1A1A2E"
       },
-      "predictiveBackGestureEnabled": false
+      "permissions": [
+        "RECORD_AUDIO",
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "VIBRATE"
+      ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      "expo-sensors",
+      "expo-location",
+      "expo-av",
+      "expo-camera"
+    ]
   }
 }
